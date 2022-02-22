@@ -33,6 +33,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'search' %}">Search</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -46,5 +49,8 @@
                 </div>
             </div>
         </div>
+    {% if is_not_authors %}
+    <button> <a href="sign/upgrade/"> Хочу стать автором!</a> </button>
+    {% endif %}
     </body>
 </html>
