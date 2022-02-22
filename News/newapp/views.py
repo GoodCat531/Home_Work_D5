@@ -6,6 +6,8 @@ from .models import Post
 from .filters import PostFilter
 from datetime import datetime
 from .forms import PostForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
 
 
 class PostList(ListView):
@@ -44,11 +46,11 @@ class PostSearch(PostList):
 
 
 
-class PostCreate(CreateView):
+class PostCreate(LoginRequiredMixin, CreateView):
     template_name = 'flatpages/add.html'
     form_class = PostForm
 
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'flatpages/edit.html'
     form_class = PostForm
 
@@ -58,7 +60,7 @@ class PostUpdate(UpdateView):
 
 
 # дженерик для удаления товара
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
     template_name = 'flatpages/delete.html'
     queryset = Post.objects.all()
     success_url = '/news/'

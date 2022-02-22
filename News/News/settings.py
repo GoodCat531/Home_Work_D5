@@ -132,8 +132,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/sign/login/'
+LOGIN_REDIRECT_URL = '/news/'
 SITE_ID = 1
 
 ACCOUNT_EMAIL_REQUIRED = True
